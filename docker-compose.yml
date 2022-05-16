@@ -29,7 +29,7 @@ services:
     environment:
       # สำหรับคนที่ต้องการดู config เพิ่มเติม https://hub.docker.com/_/mysql/
       - MYSQL_DATABASE=core-signal # ชื่อ database ซึ่งที่จะสร้างขึ้นหลังจาก container ถูกสร้างแล้ว
-      - MYSQL_USER=root # username ของ database ที่เราสร้างไว้
+      - MYSQL_USER=core-signal # username ของ database ที่เราสร้างไว้
       - MYSQL_PASSWORD=example # password ของ database ที่เราสร้างไว้
       - MYSQL_ROOT_PASSWORD=root # password สำหรับ root database หากต้องการ
     ports:
