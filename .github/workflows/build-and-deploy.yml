@@ -15,7 +15,7 @@ on:
         required: true
 #2
 env:
-  REGISTRY: "https://cloud.digitalocean.com/registry/?i=a06d7a"
+  REGISTRY: "registry.digitalocean.com/core-signal-website"
   IMAGE_NAME: "your-docker-image-name"
 
 #3
