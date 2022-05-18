@@ -15,7 +15,7 @@ on:
         required: true
 #2
 env:
-  REGISTRY: "your-digitalocean-registry-container-url"
+  REGISTRY: "https://cloud.digitalocean.com/registry/?i=a06d7a"
   IMAGE_NAME: "your-docker-image-name"
 
 #3
