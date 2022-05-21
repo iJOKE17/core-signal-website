@@ -25,9 +25,6 @@
 # </IfModule>
 
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
