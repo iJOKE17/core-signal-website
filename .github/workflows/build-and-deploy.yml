@@ -47,19 +47,15 @@ jobs:
       - name: Compile assets for production
         run: npm run production
 
-  deploy:
+  # .github/workflows/heroku-deploy.yml
+  heroku-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
+      - name: Check out repository
         uses: actions/checkout@v2
-      - name: Deployment
-        uses: appleboy/ssh-action@master
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          host: ${{ secrets.SSH_HOST }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          username: ${{ secrets.SSH_USERNAME }}
-          script: |
-            cd /var/www/html/
-            git checkout -f 
-            git pull
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
