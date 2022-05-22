@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use BigBlueButton\BigBlueButton;
-use BigBlueButton\Parameters\IsMeetingRunningParameters;
-use BigBlueButton\Parameters\CreateMeetingParameters;
-use BigBlueButton\Parameters\JoinMeetingParameters;
-use BigBlueButton\Parameters\GetMeetingInfoParameters;
+use GuzzleHttp\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,30 +16,39 @@ use BigBlueButton\Parameters\GetMeetingInfoParameters;
 */
 
 Route::get('/', function () {
-    // $apiUrl = "http://biggerbluebutton.com/bigbluebutton/Signals/";
-    // $salt = "T76uupGKsBfxzZxwvSBHOpzFBwcVlfjD";
-    // $meetingId = "GnlZYW7UYCw76QEfyQMJM2HN0orO9v2wB53adffZj0CKP6rjCe"; 
-    // $goFurther = false;
-    // $isMeetingRunning = false;
 
-    // $bbb = new BigBlueButton($apiUrl, $salt);
-    // $response = $bbb->getMeetings();
-    // $meetings = $response->getMeetings();
+    $client = new GuzzleHttp\Client();
+    $bbb = new BigBlueButton();
+    $response = $bbb->getMeetings();
 
-    // $getMeetingInfoParams = new GetMeetingInfoParameters($meetings[0]->getMeetingId(), $meetings[0]->getModeratorPassword());
-    // $responseMeeting = $bbb->getMeetingInfo($getMeetingInfoParams);
+    $result = [
+        "TEST01" => null,
+        "TEST02" => null,
+        "TEST03" => null
+    ];
+    
+    if ($response->getReturnCode() == 'SUCCESS') {
+        foreach ($response->getRawXml()->meetings->meeting as $meeting) {
+            $body = [
+                'id' => $meeting->meetingID->__toString(),
+                'name' => 'Guest',
+                'email' => '',
+                'password' => ''
+            ];
 
-    // $createMeetingParams = new CreateMeetingParameters($meetings[0]->getMeetingId(), $meetings[0]->getMeetingName());
-    // $createMeetingParams->setModeratorPW($meetings[0]->getModeratorPassword());
+            $response = $client->request('POST', 'https://biggerbluebutton.com/api/guest/join', [
+                'json' => $body
+            ]);
 
-    // $createMeetingResponse = $bbb->createMeeting($createMeetingParams);
+            $str=str_replace("\r\n","",$response->getBody()->getContents());
+            $array_response = json_decode($str, true);
+            $url = $array_response['url'];
+            $result[$meeting->meetingName->__toString()] = $url;
+        }
+    }
 
-    // dd($createMeetingResponse);
 
-
-
-
-    return view('welcome');
+    return View::make('welcome')->with('result', $result);
 });
 
 Auth::routes();
