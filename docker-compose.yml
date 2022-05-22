@@ -2,7 +2,7 @@ version: "2" # version ของ docker compose
 services:
     # Php สำหรับการสร้าง php container
     php:
-        build: ./ # ชี้ไป path ของ Dockerfile เพื่อที่จะใช้ในการสร้าง container
+        build: Dockerfile # ชี้ไป path ของ Dockerfile เพื่อที่จะใช้ในการสร้าง container
         working_dir: /var/www/laravel # directory ที่จะเป็นจัดที่เราทำงาน
         volumes:
             # เป็น volume ไฟล์ จากเครื่องเราไปยัง container จะเป็นการเชื่อมต่อกันแบบ
@@ -39,18 +39,13 @@ services:
             MYSQL_ROOT_PASSWORD: root
             SERVICE_TAGS: dev
             SERVICE_NAME: mysql
-            # สำหรับคนที่ต้องการดู config เพิ่มเติม https://hub.docker.com/_/mysql/
-            # - MYSQL_DATABASE=core-signal # ชื่อ database ซึ่งที่จะสร้างขึ้นหลังจาก container ถูกสร้างแล้ว
-            # - MYSQL_USER=core-signal # username ของ database ที่เราสร้างไว้
-            # - MYSQL_PASSWORD=example # password ของ database ที่เราสร้างไว้
-            # - MYSQL_ROOT_PASSWORD=root # password สำหรับ root database หากต้องการ
         ports:
             - "3306:3306" # port ที่เราต้องการจะใช้ระหว่าง {host}:{container} นะครับ
         networks:
             - app-network
 
     composer: # เป็น container สำหรับการรัน install package laravel ที่จะสั่งรันครั้งเดียวแล้วหยุดรัน container ไป
-        build: ./docker-php # ใช้ dockerfile เดียวกันกับ container php
+        build: Dockerfile # ใช้ dockerfile เดียวกันกับ container php
         working_dir: /var/www/laravel
         volumes_from:
             - php
