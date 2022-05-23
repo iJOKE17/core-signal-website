@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "bigbluebutton/bigbluebutton-api-php": "~2.0.0",
         "guzzlehttp/guzzle": "^6.5|^7.0.1",
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
