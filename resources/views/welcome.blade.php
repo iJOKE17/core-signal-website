@@ -27,43 +27,27 @@
     <body class="antialiased">
         <div class="bg-gray-100 dark:bg-gray-900">
             <div class="container min-h-screen">
-                <div class="flex justify-center items-center py-4 px-3 border-top border-bottom" >
-                    <div class="col-4 px-2">
-                        <div class="text-white text-center mb-3">
-                            ROOM-1 
+                <div class="flex justify-center items-center py-4 px-3 border-top border-bottom">
+                    @foreach($result as $name => $url)
+                        <div class="col-4 px-2">
+                            <div class="text-white text-center mb-3">
+                                {{ $name }}
+                            </div>
+                            @if($url != null)
+                            <iframe 
+                                src="{{ $url }}"
+                                width="100%"
+                                height="400px"
+                                allowfullscreen="true" 
+                                webkitallowfullscreen="true" 
+                                mozallowfullscreen="true"
+                            >
+                            </iframe>
+                            @else
+                                <div class="text-white text-center">Room has not start yet</div>
+                            @endif
                         </div>
-                        <iframe 
-                            src="https://bbb-engine.com/vh-sg-04/html5client/join?sessionToken=em5sn10tqkcvjymd"
-                            width="100%"
-                            height="400px"
-                        >
-
-                        </iframe>
-                    </div>
-                    <div class="col-4 px-2">
-                    <div class="text-white text-center mb-3">
-                            ROOM-2
-                        </div>
-                        <iframe 
-                            src="https://bbb-engine.com/vh-sg-04/html5client/join?sessionToken=em5sn10tqkcvjymd"
-                            width="100%"
-                            height="400px"
-                        >
-
-                        </iframe>
-                    </div>
-                    <div class="col-4 px-2">
-                        <div class="text-white text-center mb-3">
-                            ROOM-3
-                        </div>
-                        <iframe 
-                            src="https://bbb-engine.com/vh-sg-04/html5client/join?sessionToken=em5sn10tqkcvjymd"
-                            width="100%"
-                            height="400px"
-                        >
-
-                        </iframe>
-                    </div>
+                    @endforeach   
                 </div>
             </div>
         </div>
