@@ -27,25 +27,32 @@
     <body class="antialiased">
         <div class="bg-gray-100 dark:bg-gray-900">
             <div class="container min-h-screen">
-                <div class="flex justify-center items-center py-4 px-3 border-top border-bottom">
+                <div class="row justify-center items-center py-4 px-3 border-top border-bottom">
                     @foreach($result as $name => $url)
-                        <div class="col-4 px-2">
+                        <div class="col-6 px-2">
                             <div class="text-white text-center mb-3">
                                 {{ $name }}
                             </div>
                             @if($url != null)
-                            <iframe 
+                            <!-- <iframe
+                                title="{{ $name }}" 
                                 src="{{ $url }}"
-                                width="100%"
+                                width="800px"
                                 height="400px"
                                 allowfullscreen="true" 
                                 webkitallowfullscreen="true" 
                                 mozallowfullscreen="true"
+                                allow="autoplay; geolocation; display-capture"
                             >
-                            </iframe>
+                            </iframe> -->
+                            <div class="mb-5"> 
+                                <object type="text/html" data="{{ $url }}" style="width: 100%; height: 450px;">
+                                </object>
+                            </div>
                             @else
                                 <div class="text-white text-center">Room has not start yet</div>
                             @endif
+                        
                         </div>
                     @endforeach   
                 </div>

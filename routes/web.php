@@ -33,7 +33,7 @@ Route::get('/', function () {
                 'id' => $meeting->meetingID->__toString(),
                 'name' => 'Guest',
                 'email' => '',
-                'password' => ''
+                'password' => $meeting->attendeePW->__toString(),
             ];
 
             $response = $client->request('POST', 'https://biggerbluebutton.com/api/guest/join', [
@@ -46,7 +46,6 @@ Route::get('/', function () {
             $result[$meeting->meetingName->__toString()] = $url;
         }
     }
-
 
     return View::make('welcome')->with('result', $result);
 });
