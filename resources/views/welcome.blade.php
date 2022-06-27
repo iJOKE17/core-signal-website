@@ -11,9 +11,9 @@
                     </h3>
                 </a>
                 @else
-                    <div class="text-white text-center mb-3">
+                    <h3 class="text-white text-center mb-3">
                         {{ $name }}
-                    </div>
+                    </h3>
                 @endif
 
                 @if(isset($url['url']))
