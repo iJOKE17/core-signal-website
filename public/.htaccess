@@ -24,11 +24,20 @@
 
 # </IfModule>
 
-<IfModule mod_rewrite.c>
-RewriteEngine On
+# <IfModule mod_rewrite.c>
+# RewriteEngine On
 
-RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
-RewriteCond %{HTTP:X-Forwarded-Proto} =""
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
+# RewriteCond %{HTTP:X-Forwarded-Proto} =""
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+<IfModule mod_rewrite.c>
+   RewriteEngine On
+   # Force SSL
+   RewriteCond %{HTTPS} !=on
+   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+   # Remove public folder form URL
+   RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
