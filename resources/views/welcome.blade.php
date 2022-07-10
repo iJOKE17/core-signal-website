@@ -3,7 +3,7 @@
 @section('content')
     <div class="row justify-center items-center py-4 px-3 border-top border-bottom">
         @foreach($result as $name => $url)
-            <div class="col-6 px-2">
+            <div class="col-md-6 col-12 px-md-2 px-0">
                 @if(isset($url['id']))
                 <a href="{{ route('signal-room', ['id' => $url['id']]) }}">
                     <h3 class="text-white text-center mb-3">
