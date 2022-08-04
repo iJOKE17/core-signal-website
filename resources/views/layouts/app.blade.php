@@ -25,62 +25,121 @@
         </style>
     </head>
     <body>
-        <div id="app" class="bg-gray-100 dark:bg-gray-900">
+        <div id="app" class="bg-dark">
             <div class="container min-h-screen">
-            <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <div class="row mx-0">
+                    <div class="col-10 px-0">
+                        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                            <div class="container">
+                                <a class="navbar-brand" href="{{ url('/') }}">
+                                    CORE SIGNAL
+                                </a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto">
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <!-- <ul class="navbar-nav me-auto">
 
-                        </ul>
+                                    </ul> -->
 
-                        <ul class="navbar-nav ms-auto">
-                            @guest
-                                @if (Route::has('login'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                    </li>
-                                @endif
+                                    <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">SERVICES</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('main-signal-room') }}">SIGNAL ROOM</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">ABOUT US</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                SUPPORT
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                    </ul>
 
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
+                                    <!-- <ul class="navbar-nav ms-auto">
+                                        @guest
+                                            @if (Route::has('login'))
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                </li>
+                                            @endif
 
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
+                                            @if (Route::has('register'))
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                </li>
+                                            @endif
+                                        @else
+                                            <li class="nav-item dropdown">
+                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                    {{ Auth::user()->name }}
+                                                </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
+                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                                    document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
+                                                    </a>
+
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                        @csrf
+                                                    </form>
+                                                </div>
+                                            </li>
+                                        @endguest
+                                    </ul> -->
+                                </div>
+                            </div>
+                        </nav>
+                        <main class="py-4">
+                            @yield('content')
+                        </main>
+                    </div>
+
+                    <div class="col-2 px-0">
+                        <div class="py-3 text-white">
+                            {{ Auth::user()->email }}
+                        </div>
+                        <div class="ps-2">
+                            <div class="text-white">
+                                STATUS: ACTIVE
+                            </div>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Personal Data</a>
                                 </li>
-                            @endguest
-                        </ul>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('main-signal-room') }}">Signal Rooms</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Balance History</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Contact Support</a>
+                                </li>
+                            </ul>
+                            <button 
+                                type="button" 
+                                class="btn btn-outline-secondary" 
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Lock Out
+                            </button>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </nav> -->
-
-                <main class="py-4">
-                    @yield('content')
-                </main>
             </div>
         </div>
     </body>

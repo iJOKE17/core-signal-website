@@ -15,7 +15,7 @@ use GuzzleHttp\Client;
 |
 */
 
-Route::get('/', function () {
+Route::get('/signal-room', function () {
 
     $client = new GuzzleHttp\Client();
     $bbb = new BigBlueButton();
@@ -30,22 +30,21 @@ Route::get('/', function () {
     if ($response->getReturnCode() == 'SUCCESS') {
         foreach ($response->getRawXml()->meetings->meeting as $meeting) {
             if (array_key_exists($meeting->meetingName->__toString(), $result)) {
-                $body = [
-                    'id' => $meeting->meetingID->__toString(),
-                    'name' => 'Guest',
-                    'email' => '',
-                    'password' => $meeting->attendeePW->__toString(),
-                ];
+                // $body = [
+                //     'id' => $meeting->meetingID->__toString(),
+                //     'name' => 'Guest',
+                //     'email' => '',
+                //     'password' => $meeting->attendeePW->__toString(),
+                // ];
     
-                $response = $client->request('POST', 'https://biggerbluebutton.com/api/guest/join', [
-                    'json' => $body
-                ]);
+                // $response = $client->request('POST', 'https://biggerbluebutton.com/api/guest/join', [
+                //     'json' => $body
+                // ]);
     
-                $str=str_replace("\r\n","",$response->getBody()->getContents());
-                $array_response = json_decode($str, true);
-                $url = $array_response['url'];
+                // $str=str_replace("\r\n","",$response->getBody()->getContents());
+                // $array_response = json_decode($str, true);
+                // $url = $array_response['url'];
                 $result[$meeting->meetingName->__toString()] = [
-                    "url" => $url,
                     "id" => $meeting->meetingID->__toString()
                 ];
             }
@@ -54,7 +53,7 @@ Route::get('/', function () {
     }
 
     return View::make('welcome')->with('result', $result);
-});
+})->name('main-signal-room')->middleware('auth');
 
 Route::get('/signal-room/{id}', function ($id) {
     $client = new GuzzleHttp\Client();
@@ -80,8 +79,8 @@ Route::get('/signal-room/{id}', function ($id) {
     }
 
     return View::make('signals.signal-room')->with('url', $url);
-})->name('signal-room');
+})->name('signal-room')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
