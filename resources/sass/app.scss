@@ -1,3 +1,4 @@
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -6,3 +7,24 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.login-bg {
+    background: linear-gradient(360deg, #BE9E64 -16.87%, rgba(190, 158, 100, 0) 71.81%);
+    border-radius: 30px;
+} 
+
+.main-bg {
+    background-image: url("/images/main-bg.png");
+    background-blend-mode: luminosity;
+    background-size: cover;
+    background-color: #141820;
+}
+
+.login-button {
+    background-image: url("/images/login-button.png");
+    background-blend-mode: luminosity;
+    background-size: cover;
+    background-color: #141820;
+    border-radius: 10px;
+    height: 80px;
+}

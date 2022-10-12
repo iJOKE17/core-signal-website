@@ -25,7 +25,7 @@
         </style>
     </head>
     <body>
-        <div id="app" class="bg-dark">
+        <div id="app" class="main-bg">
             <div class="container min-h-screen">
                 <main class="py-4">
                     @yield('content')
