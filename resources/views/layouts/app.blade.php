@@ -10,134 +10,182 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
         <!-- Styles -->
         <style>
             /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
         </style>
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
     </head>
     <body>
-        <div id="app" class="bg-dark">
-            <div class="container min-h-screen">
+        <div id="app" class="main-bg">
+            <div class="container-fluid px-0" style="height: 100%;">
                 <div class="row mx-0">
-                    <div class="col-10 px-0">
-                        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-                            <div class="container">
-                                <a class="navbar-brand" href="{{ url('/') }}">
-                                    CORE SIGNAL
-                                </a>
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <!-- <ul class="navbar-nav me-auto">
-
-                                    </ul> -->
-
-                                    <ul class="navbar-nav ms-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">SERVICES</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('main-signal-room') }}">SIGNAL ROOM</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">ABOUT US</a>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                SUPPORT
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                    <!-- <ul class="navbar-nav ms-auto">
-                                        @guest
-                                            @if (Route::has('login'))
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                                </li>
-                                            @endif
-
-                                            @if (Route::has('register'))
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                                </li>
-                                            @endif
-                                        @else
-                                            <li class="nav-item dropdown">
-                                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                    {{ Auth::user()->name }}
-                                                </a>
-
-                                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                    document.getElementById('logout-form').submit();">
-                                                        {{ __('Logout') }}
-                                                    </a>
-
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                        @csrf
-                                                    </form>
-                                                </div>
-                                            </li>
-                                        @endguest
-                                    </ul> -->
+                    <div class="col-2 px-3 flex flex-column position-relative">
+                        <div class="nav-bg" style="z-index: 1;"></div>
+                        <div style="z-index: 2;">
+                            <div class="flex align-items-center nav-top">
+                                <img src="{{ asset('images/user.png') }}" width="40px" height="40px" />
+                                <div class="py-3 text-white ms-3">
+                                    {{ Auth::user()->email }}
                                 </div>
                             </div>
-                        </nav>
-                        <main class="py-4">
-                            @yield('content')
-                        </main>
-                    </div>
-
-                    <div class="col-2 px-0">
-                        <div class="py-3 text-white">
-                            {{ Auth::user()->email }}
-                        </div>
-                        <div class="ps-2">
-                            <div class="text-white">
-                                STATUS: ACTIVE
+                            <div class="mt-4 px-3">
+                                <div class="nav-item mb-4">
+                                    <a class="flex align-items-center" href="#">
+                                        <i class="bi bi-person-fill nav-icon"></i>
+                                        <div class="text-white ms-3">Personal Data</div>
+                                    </a>
+                                </div>
+                                <div class="nav-item mb-4">
+                                    <a class="flex align-items-center" href="{{ route('main-signal-room') }}">
+                                        <i class="bi bi-grid nav-icon"></i>
+                                        <div class="text-white ms-3">Signal Room</div>
+                                    </a>
+                                </div>
+                                <div class="nav-item">
+                                    <a class="flex align-items-center" href="#">
+                                        <i class="bi bi-clipboard-data nav-icon"></i>
+                                        <div class="text-white ms-3">Histroy</div>
+                                    </a>
+                                </div>
                             </div>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Personal Data</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('main-signal-room') }}">Signal Rooms</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Balance History</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Contact Support</a>
-                                </li>
-                            </ul>
-                            <button 
-                                type="button" 
-                                class="btn btn-outline-secondary" 
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Lock Out
-                            </button>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
                         </div>
+                    </div>
+                    <div class="col-10 px-0">
+                        <div class="main-height">
+                            <nav class="navbar navbar-expand-md nav-top position-relative">
+                                <div class="nav-top-bg" style="z-index: 1"></div>
+                                <div class="container ps-2"  style="z-index: 2;">
+                                    <a class="navbar-brand flex align-items-center" href="{{ url('/') }}">
+                                        <img src="{{ asset('images/logo2.png') }}" width="70px" height="70px" />
+                                        <div class="text-white nav-top-title">The Core Master</div>
+                                    </a>
+
+                                    <div class="flex ms-auto align-items-center" >
+                                        <div class="nav-item me-5">
+                                            <a class="flex align-items-center" href="#">
+                                                <div class="text-white nav-top-menu">Service</div>
+                                            </a>
+                                        </div>
+                                        <div class="nav-item me-5">
+                                            <a class="flex align-items-center" href="#">
+                                                <div class="text-white nav-top-menu">About Us</div>
+                                            </a>
+                                        </div>
+                                        <div class="nav-item me-5">
+                                            <a class="flex align-items-center" href="#">
+                                                <div class="text-white nav-top-menu">Support</div>
+                                            </a>
+                                        </div>
+                                        <button 
+                                            type="button" 
+                                            class="btn logout-button" 
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <img src="{{ asset('images/logout-icon.png') }}" width="24px" height="24px" />
+                                        </button>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </div>
+                            </nav>
+                            <main class="py-4">
+                                @yield('content')
+                            </main>
+                        </div>
+                        <footer class="text-white position-relative" style="height: 180px">
+                            <div class="row mx-0 h-100" style="z-index: 1; padding: 30px;">
+                                <div class="col-2 px-3 first-footer">
+                                    <div class="flex flex-column h-100 justify-content-between">
+                                        <div>
+                                            <div class="footer-title">
+                                                The Core Master
+                                            </div>
+                                            <div class="footer-title">
+                                                Chanels
+                                            </div>
+                                        </div>
+                                        <div class="row mx-0">
+                                            <img src="{{ asset('images/facebook-icon.png') }}" class="footer-icon me-3" />
+                                            <img src="{{ asset('images/twitter-icon.png') }}" class="footer-icon me-3" />
+                                            <img src="{{ asset('images/instragram-icon.png') }}" class="footer-icon" />
+                                        </div>
+                                        <div class="row mx-0">
+                                            <img src="{{ asset('images/pinterest-icon.png') }}" class="footer-icon me-3" />
+                                            <img src="{{ asset('images/youtube-icon.png') }}" class="footer-icon me-3" />
+                                            <img src="{{ asset('images/in-icon.png') }}" class="footer-icon" />
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="col-10 px-5 flex justify-content-between">
+                                    <div>
+                                        <div class="footer-title mb-3">
+                                            Service
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Signal Room
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Learning Room
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            EA
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="footer-title mb-3">
+                                            Signals Room
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Forex Room
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Binary Room
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Crypto Currency
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="footer-title mb-3">
+                                            About Us
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Why we trade ?
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <div class="footer-title mb-3">
+                                            Support
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Chat
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Email
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="footer-title mb-3">
+                                            Get Started
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Sign up
+                                        </div>
+                                        <div class="footer-text mb-2">
+                                            Login
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-bg" style="z-index: 0;"></div>
+                        </footer>
                     </div>
                 </div>
             </div>
