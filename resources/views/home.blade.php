@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row py-4">
+    <div class="row py-5">
         <div class="col-9 px-5">
             <div class="flex flex-column align-items-center">
                 <img src="{{ asset('images/homepage.png') }}" style="width: 105%; margin-left: -3%;" />
