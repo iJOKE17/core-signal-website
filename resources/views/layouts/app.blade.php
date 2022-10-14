@@ -118,7 +118,7 @@
                             </main>
                         </div>
                         <footer class="text-white position-relative" style="height: 180px">
-                            <div class="row mx-0 h-100" style="z-index: 1; padding: 30px;">
+                            <div class="row mx-0 h-100 position-relative" style="z-index: 1; padding: 30px;">
                                 <div class="col-2 px-3 first-footer">
                                     <div class="flex flex-column h-100 justify-content-between">
                                         <div>
