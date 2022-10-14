@@ -7,6 +7,9 @@
         <title>Laravel</title>
 
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -23,41 +26,50 @@
             .laravel-embed__responsive-wrapper embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         </style>
         <x-embed-styles />
+
+        @stack('scripts')
     </head>
     <body>
         <div id="app" class="main-bg">
             <div class="container-fluid px-0" style="height: 100%;">
                 <div class="row mx-0">
-                    <div class="col-2 px-3 flex flex-column position-relative">
+                    <div class="col-2 px-0 flex flex-column position-relative">
                         <div class="nav-bg" style="z-index: 1;"></div>
                         <div class="position-relative" style="z-index: 2;">
-                            <div class="flex align-items-center nav-top">
+                            <div class="flex align-items-center nav-top px-3">
                                 <img src="{{ asset('images/user.png') }}" width="40px" height="40px" />
                                 <div class="py-3 text-white ms-3">
                                     {{ Auth::user()->email }}
                                 </div>
                             </div>
-                            <div class="mt-4 px-3">
-                                <div class="nav-item mb-4 position-relative {{ Route::is('personal-data') ? 'left-nav-active' : '' }}">
-                                    <div class="nav-item-active"></div>
-                                    <a class="flex align-items-center" href="{{ route('personal-data') }}">
-                                        <i class="bi bi-person-fill nav-icon"></i>
-                                        <div class="nav-item-text ms-3">Personal Data</div>
-                                    </a>
+                            <div class="mt-4">
+                                <div class="position-relative px-3 mb-4">
+                                    <div class="nav-item px-3 {{ Route::is('personal-data') ? 'left-nav-active' : '' }}">
+                                        <div class="nav-item-active"></div>
+                                        <a class="flex align-items-center" href="{{ route('personal-data') }}">
+                                            <i class="bi bi-person-fill nav-icon"></i>
+                                            <div class="nav-item-text ms-3">Personal Data</div>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="nav-item mb-4 position-relative {{ Route::is('main-signal-room') ? 'left-nav-active' : '' }}">
-                                    <div class="nav-item-active"></div>
-                                    <a class="flex align-items-center" href="{{ route('main-signal-room') }}">
-                                        <i class="bi bi-grid nav-icon"></i>
-                                        <div class="nav-item-text ms-3">Signal Room</div>
-                                    </a>
+
+                                <div class="position-relative px-3 mb-4">
+                                    <div class="nav-item px-3 {{ Route::is('main-signal-room') ? 'left-nav-active' : '' }}">
+                                        <div class="nav-item-active"></div>
+                                        <a class="flex align-items-center" href="{{ route('main-signal-room') }}">
+                                            <i class="bi bi-grid nav-icon"></i>
+                                            <div class="nav-item-text ms-3">Signal Room</div>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="nav-item position-relative {{ Route::is('history') ? 'left-nav-active' : '' }}">
-                                    <div class="nav-item-active"></div>
-                                    <a class="flex align-items-center" href="{{ route('history') }}">
-                                        <i class="bi bi-clipboard-data nav-icon"></i>
-                                        <div class="nav-item-text ms-3">Histroy</div>
-                                    </a>
+                                <div class="position-relative px-3 mb-4">
+                                    <div class="nav-item px-3 {{ Route::is('history') ? 'left-nav-active' : '' }}">
+                                        <div class="nav-item-active"></div>
+                                        <a class="flex align-items-center" href="{{ route('history') }}">
+                                            <i class="bi bi-clipboard-data nav-icon"></i>
+                                            <div class="nav-item-text ms-3">Histroy</div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +112,7 @@
                                     </div>
                                 </div>
                             </nav>
-                            <main class="py-4">
+                            <main>
                                 @yield('content')
                             </main>
                         </div>
