@@ -1,47 +1,85 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row justify-center items-center py-4 px-3 border-top border-bottom mx-0">
-        @foreach($result as $name => $url)
-            <div class="col-md-4 col-12 px-md-2 px-0">
-                @if(isset($url['id']))
-                <a href="{{ route('signal-room', ['id' => $url['id']]) }}">
-                    <h3 class="text-white text-center mb-3">
-                        {{ $name }}
-                    </h3>
-                </a>
-                @else
-                    <h3 class="text-white text-center mb-3">
-                        {{ $name }}
-                    </h3>
-                @endif
-
-                @if(isset($url['id']))
-                <a href="{{ route('signal-room', ['id' => $url['id']]) }}">
-                    <div class="mb-5">
-                        <div class="bg-white col-12 py-5 rounded flex-column">
-                            <h3 class="text-dark text-center">
-                                XAU / USD
-                            </h3>
-                            <h3 class="text-dark text-center">
-                                EUR / USD
-                            </h3>
-                        </div>
-                    </div>
-                </a>
-                @else
-                <div class="mb-5">
-                    <div class="bg-white col-12 py-5 rounded flex-column">
-                        <h3 class="text-dark text-center">
-                            XAU / USD
-                        </h3>
-                        <h3 class="text-dark text-center">
-                            EUR / USD
-                        </h3>
-                    </div>
-                </div>
-                @endif
-            </div>
-        @endforeach   
+<div class="p-5">
+    <div class="signal-room-title">
+        Room Avialable
     </div>
+    <div class="ps-4 mt-2">
+        <div class="signal-room-text">
+            Choose your Room
+        </div>
+
+        <div class="mt-5 signal-room-title">
+            Forex Rooms
+        </div>
+        <div class="mt-5 flex">
+            @foreach($result["FOREX"] as $name => $url)
+                @if(isset($url['id']))
+                <a href="{{ route('signal-room', ['id' => $url['id']]) }}" class="service-card flex flex-column justify-content-center align-items-center me-5">
+                        <img src="{{ asset('images/forex-room-icon.png') }}" class="service-icon-card signal-room-icon-card" style="width: 84px;" />
+                        <div class="service-text mt-2">
+                            {{ $name }}
+                        </div>
+                        <div class="signal-room-card-text-info">
+                            XAU / USD
+                        </div>
+                        <div class="signal-room-card-text-info">
+                            EUR / USD
+                        </div>
+                    </a>
+                @else
+                <a class="more-info-card flex flex-column justify-content-center align-items-center me-5">
+                    <img src="{{ asset('images/forex-room-lock-icon.png') }}" class="service-icon-card signal-room-icon-card" />
+                    <div class="service-text mt-2">
+                        {{ $name }}
+                    </div>
+                    <div class="signal-room-card-text-info">
+                        XAU / USD
+                    </div>
+                    <div class="signal-room-card-text-info">
+                        EUR / USD
+                    </div>
+                </a>
+                @endif
+            @endforeach   
+        </div>
+
+        <div class="mt-5 signal-room-title">
+            Binary Rooms
+        </div>
+        <div class="mt-4 flex">
+            @foreach($result["BINARY"] as $name => $url)
+                @if(isset($url['id']))
+                <a href="{{ route('signal-room', ['id' => $url['id']]) }}" class="service-card flex flex-column justify-content-center align-items-center me-5">
+                        <img src="{{ asset('images/binary-room-icon.png') }}" class="service-icon-card signal-room-icon-card" />
+                        <div class="service-text mt-2">
+                            {{ $name }}
+                        </div>
+                        <div class="signal-room-card-text-info">
+                            XAU / USD
+                        </div>
+                        <div class="signal-room-card-text-info">
+                            EUR / USD
+                        </div>
+                    </a>
+                @else
+                <a class="more-info-card flex flex-column justify-content-center align-items-center me-5">
+                    <img src="{{ asset('images/binary-room-lock-icon.png') }}" class="service-icon-card signal-room-icon-card" />
+                    <div class="service-text mt-2">
+                        {{ $name }}
+                    </div>
+                    <div class="signal-room-card-text-info">
+                        XAU / USD
+                    </div>
+                    <div class="signal-room-card-text-info">
+                        EUR / USD
+                    </div>
+                </a>
+                @endif
+            @endforeach   
+        </div>
+    </div>
+</div>
+    
 @endsection

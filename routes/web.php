@@ -21,10 +21,19 @@ Route::get('/signal-room', function () {
     $bbb = new BigBlueButton();
     $response = $bbb->getMeetings();
 
-    $result = [
-        "ROOM1" => null,
-        "ROOM2" => null,
-        "ROOM3" => null
+    $forex = [
+        "Room F1" => null,
+        "Room F2" => null,
+        "Room F3" => null,
+        "Room F4" => null
+    ];
+
+    $binary = [
+        "Room B1" => null,
+        "Room B2" => null,
+        "Room B3" => null,
+        "Room B4" => null,
+        "Room B5" => null
     ];
     
     if ($response->getReturnCode() == 'SUCCESS') {
@@ -44,7 +53,7 @@ Route::get('/signal-room', function () {
                 // $str=str_replace("\r\n","",$response->getBody()->getContents());
                 // $array_response = json_decode($str, true);
                 // $url = $array_response['url'];
-                $result[$meeting->meetingName->__toString()] = [
+                $forex[$meeting->meetingName->__toString()] = [
                     "id" => $meeting->meetingID->__toString()
                 ];
             }
@@ -52,7 +61,7 @@ Route::get('/signal-room', function () {
         }
     }
 
-    return View::make('welcome')->with('result', $result);
+    return View::make('welcome')->with('result', [ "FOREX" => $forex, "BINARY" => $binary ]);
 })->name('main-signal-room')->middleware('auth');
 
 Route::get('/signal-room/{id}', function ($id) {
@@ -80,6 +89,27 @@ Route::get('/signal-room/{id}', function ($id) {
 
     return View::make('signals.signal-room')->with('url', $url);
 })->name('signal-room')->middleware('auth');
+
+Route::get('/history', function () {
+    return View::make('history');
+})->name('history');
+
+Route::get('/personal-data', function () {
+    return View::make('personal');
+})->name('personal-data');
+
+Route::get('/services', function () {
+    return View::make('service');
+})->name('services');
+
+Route::get('/about-us', function () {
+    return View::make('aboutus');
+})->name('about-us');
+
+Route::get('/support', function () {
+    return View::make('support');
+})->name('support');
+
 
 Auth::routes();
 

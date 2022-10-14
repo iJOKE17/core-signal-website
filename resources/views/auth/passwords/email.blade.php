@@ -15,6 +15,10 @@
                         </div>
                     @endif
 
+                    <div class="title-register text-center">
+                        Forget Password
+                    </div>
+
                     <form method="POST" action="{{ route('password.email') }}" class="mt-5 px-3">
                         @csrf
 

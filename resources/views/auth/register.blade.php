@@ -8,6 +8,9 @@
                 <div class="flex flex-column align-items-center mt-3 mb-5">
                     <img src="{{ asset('images/logo.png') }}" style="width: 300px; height: 300px" alt="logo">
                 </div>
+                <div class="title-register text-center">
+                        Register
+                </div>
                 <form method="POST" action="{{ route('register') }}" class="mt-5 px-3">
                     @csrf
                     <div class="flex flex-column mb-3">
