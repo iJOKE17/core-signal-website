@@ -12,7 +12,7 @@
     </div>
 
     <div class="row">
-        <div class="col ms-3">
+        <div class="col ms-3" style="max-width: 500px">
             <div class="service-bg flex flex-column align-items-center py-4">
                 <div class="service-card-title">
                     Binary
@@ -111,7 +111,7 @@
                 </div>
             </button>
         </div>
-        <div class="col mx-3">
+        <div class="col mx-3" style="max-width: 500px">
             <div class="service-bg flex flex-column align-items-center py-4">
                 <div class="service-card-title">
                     Forex
@@ -210,7 +210,7 @@
                 </div>
             </button>
         </div>
-        <div class="col me-3">
+        <div class="col me-3" style="max-width: 500px">
             <div class="service-bg flex flex-column align-items-center py-4">
                 <div class="service-card-title">
                     Binary + Forex
