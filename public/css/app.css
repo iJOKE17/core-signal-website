@@ -11658,10 +11658,6 @@ html, body {
   color: #FFFFFF;
 }
 
-.dvtext {
-  display: none;
-}
-
 .service-bg {
   background: linear-gradient(180deg, rgba(190, 158, 100, 0) -16%, #BEA264 137%);
   border-radius: 10px 10px 0px 0px;
@@ -11766,4 +11762,5 @@ html, body {
 
 .radio-button-service {
   transform: scale(1.5);
+  margin-right: 5px;
 }
