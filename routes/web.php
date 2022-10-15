@@ -92,23 +92,23 @@ Route::get('/signal-room/{id}', function ($id) {
 
 Route::get('/history', function () {
     return View::make('history');
-})->name('history');
+})->name('history')->middleware('auth');
 
 Route::get('/personal-data', function () {
     return View::make('personal');
-})->name('personal-data');
+})->name('personal-data')->middleware('auth');
 
 Route::get('/services', function () {
     return View::make('service');
-})->name('services');
+})->name('services')->middleware('auth');
 
 Route::get('/about-us', function () {
     return View::make('aboutus');
-})->name('about-us');
+})->name('about-us')->middleware('auth');
 
 Route::get('/support', function () {
     return View::make('support');
-})->name('support');
+})->name('support')->middleware('auth');
 
 
 Auth::routes();
