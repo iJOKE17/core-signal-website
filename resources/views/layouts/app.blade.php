@@ -79,8 +79,8 @@
                         <div class="main-height">
                             <nav class="navbar navbar-expand-md nav-top position-relative">
                                 <div class="nav-top-bg" style="z-index: 1"></div>
-                                <div class="container ps-2"  style="z-index: 2;">
-                                    <a class="navbar-brand flex align-items-center" href="{{ url('/') }}">
+                                <div class="container px-5 position-relative"  style="z-index: 2;">
+                                    <a class="navbar-brand flex align-items-center position-absolute ms-5" style="left: -16px;" href="{{ url('/') }}">
                                         <img src="{{ asset('images/logo2.png') }}" width="70px" height="70px" />
                                         <div class="text-white nav-top-title">The Core Master</div>
                                     </a>

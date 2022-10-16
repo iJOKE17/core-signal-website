@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="p-5 ms-4">
+<div class="p-5 container">
     <div class="signal-room-title">
         Support
     </div>

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row py-5">
-        <div class="col-9 px-5">
+<div class="container p-5">
+    <div class="row">
+        <div class="col-9 pe-4">
             <div class="flex flex-column align-items-center">
                 <img src="{{ asset('images/homepage.png') }}" style="width: 105%; margin-left: -3%;" />
                 <img src="{{ asset('images/homepage2.png') }}" class="mt-4 mb-4" />

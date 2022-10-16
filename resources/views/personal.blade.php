@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="px-5 pb-5 ms-4">
+<div class="container px-5 pb-5">
     <div class="row">
         <div class="col-4 mr-5">
             <div class="personal-page-title-layout flex justify-content-center align-items-center py-4">
