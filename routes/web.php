@@ -38,7 +38,7 @@ Route::get('/signal-room', function () {
     
     if ($response->getReturnCode() == 'SUCCESS') {
         foreach ($response->getRawXml()->meetings->meeting as $meeting) {
-            if (array_key_exists($meeting->meetingName->__toString(), $result)) {
+            if (array_key_exists($meeting->meetingName->__toString(), $forex)) {
                 // $body = [
                 //     'id' => $meeting->meetingID->__toString(),
                 //     'name' => 'Guest',
@@ -54,6 +54,12 @@ Route::get('/signal-room', function () {
                 // $array_response = json_decode($str, true);
                 // $url = $array_response['url'];
                 $forex[$meeting->meetingName->__toString()] = [
+                    "id" => $meeting->meetingID->__toString()
+                ];
+            }
+
+            if (array_key_exists($meeting->meetingName->__toString(), $binary)) {
+                $binary[$meeting->meetingName->__toString()] = [
                     "id" => $meeting->meetingID->__toString()
                 ];
             }
