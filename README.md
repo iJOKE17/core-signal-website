@@ -24,7 +24,7 @@ $ docker run -d -p 80:80 app:latest
 
 ```bash
 docker run -d -p 80:80 app:latest
-```
+``` 
 
 #### Note: if run in production image make sure you connect database before build.
 
